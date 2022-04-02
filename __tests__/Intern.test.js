@@ -16,7 +16,7 @@ test("get intern's school", () => {
     expect(intern.getSchool()).toBe(school);
 });
 
-// make sure getRole() metho returns intern role
+// make sure getRole() method returns intern role
 test("get intern's role", () => {
     const role = 'Intern'
     const intern = new Intern('Foo', 1, 'email@email.com', 'school');
