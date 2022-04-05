@@ -95,10 +95,73 @@ const addTeamMember = () => {
                 case 'Intern':
                     addIntern();
                     break;
-                case 'I do not want to add any more team members':
+                case 'I do not want to add any more team members.':
                     buildTeam();
                     break;
             }
+        });
+};
+
+// prompts for adding an engineer 
+const addEngineer = () => {
+    return inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'engineerName',
+                message: "What is your engineer's name?",
+                validate: nameInput => {
+                    if(nameInput === '') {
+                        console.log("Please enter the engineer's name!");
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            {
+                type: 'input',
+                name: 'engineerId',
+                message: "What is your engineer's ID number?",
+                validate: idInput => {
+                    if(idInput === '') {
+                        console.log("Please enter the engineer's ID number!");
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            {
+                type: 'input',
+                name: 'engineerEmail',
+                message: "What is your engineer's email address?",
+                validate: emailInput => {
+                    if(emailInput === '') {
+                        console.log("Please enter the engineer's email address!");
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            {
+                type: 'input',
+                name: 'engineerGithub',
+                message: "What is your engineer's Github username?",
+                validate: githubInput => {
+                    if(githubInput === '') {
+                        console.log("Please enter the engineer's Github username!");
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        ])
+        .then((answers) => {
+            // create new engineer based off user's answers
+            const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+            // push new engineer to teamArr
+            teamArr.push(engineer);
+            // call addTeamMember() function
+            addTeamMember();
         });
 };
 
