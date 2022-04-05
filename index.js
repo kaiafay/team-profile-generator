@@ -109,7 +109,7 @@ const addEngineer = () => {
             {
                 type: 'input',
                 name: 'engineerName',
-                message: "What is your engineer's name?",
+                message: "What is the engineer's name?",
                 validate: nameInput => {
                     if(nameInput === '') {
                         console.log("Please enter the engineer's name!");
@@ -121,7 +121,7 @@ const addEngineer = () => {
             {
                 type: 'input',
                 name: 'engineerId',
-                message: "What is your engineer's ID number?",
+                message: "What is the engineer's ID number?",
                 validate: idInput => {
                     if(idInput === '') {
                         console.log("Please enter the engineer's ID number!");
@@ -133,7 +133,7 @@ const addEngineer = () => {
             {
                 type: 'input',
                 name: 'engineerEmail',
-                message: "What is your engineer's email address?",
+                message: "What is the engineer's email address?",
                 validate: emailInput => {
                     if(emailInput === '') {
                         console.log("Please enter the engineer's email address!");
@@ -145,7 +145,7 @@ const addEngineer = () => {
             {
                 type: 'input',
                 name: 'engineerGithub',
-                message: "What is your engineer's Github username?",
+                message: "What is the engineer's Github username?",
                 validate: githubInput => {
                     if(githubInput === '') {
                         console.log("Please enter the engineer's Github username!");
@@ -164,6 +164,69 @@ const addEngineer = () => {
             addTeamMember();
         });
 };
+
+// prompts for adding an intern
+const addIntern = () => {
+    return inquirer
+        .prompt([
+            {
+                type: 'input',
+                name: 'internName',
+                message: "What is the intern's name?",
+                validate: nameInput => {
+                    if(nameInput === '') {
+                        console.log("Please enter the intern's name!");
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            {
+                type: 'input',
+                name: 'internId',
+                message: "What is the intern's ID number?",
+                validate: idInput => {
+                    if(idInput === '') {
+                        console.log("Please enter the intern's ID number!");
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            {
+                type: 'input',
+                name: 'internEmail',
+                message: "What is the intern's email address?",
+                validate: emailInput => {
+                    if(emailInput === '') {
+                        console.log("Please enter the intern's email address!");
+                        return false;
+                    }
+                    return true;
+                }
+            },
+            {
+                type: 'input',
+                name: 'internSchool',
+                message: "What is the intern's school name?",
+                validate: schoolInput => {
+                    if(schoolInput === '') {
+                        console.log("Please enter the intern's school name!");
+                        return false;
+                    }
+                    return true;
+                }
+            }
+        ])
+        .then((answers) => {
+            // create new intern based off user's answers
+            const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+            // push new intern to teamArr
+            teamArr.push(intern);
+            // call addTeamMember() function
+            addTeamMember();
+        });
+}
 
 // call createTeam() function at start of application
 createTeam();
