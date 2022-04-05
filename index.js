@@ -6,3 +6,4 @@ const Manager = require('./lib/Manager.js');
 // import fs and path modules
 const fs = require('fs');
 const path = require('path');
+const inquirer = require('inqurirer');
