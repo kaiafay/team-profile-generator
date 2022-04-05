@@ -11,7 +11,7 @@ const inquirer = require('inquirer');
 // empty array for team info to be pushed to
 const teamArr = [];
 
-// prompts for creating team
+// prompts for initializing creation of team
 const createTeam = () => {
     console.log('Please fill in the prompts to build your team.');
     return inquirer
@@ -73,6 +73,32 @@ const createTeam = () => {
             teamArr.push(manager);
             // call addTeamMember() function
             addTeamMember();
+        });
+};
+
+// prompts for adding team members
+const addTeamMember = () => {
+    return inquirer
+        .prompt([
+            {
+                type: 'list',
+                name: 'memberChoice',
+                message: 'Which type of team member would you like to add?',
+                choices: ['Engineer', 'Intern', "I do not want to add any more team members."]
+            }
+        ])
+        .then((choice) => {
+            switch(choice.memberChoice) {
+                case 'Engineer':
+                    addEngineer();
+                    break;
+                case 'Intern':
+                    addIntern();
+                    break;
+                case 'I do not want to add any more team members':
+                    buildTeam();
+                    break;
+            }
         });
 };
 
