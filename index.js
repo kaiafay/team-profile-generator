@@ -8,6 +8,11 @@ const fs = require('fs');
 const path = require('path');
 const inquirer = require('inquirer');
 
+// path to directory
+const dir = path.resolve(__dirname, 'dist');
+// path to output html page
+const distHTML = path.join(dir, 'index.html');
+
 // empty array for team info to be pushed to
 const teamArr = [];
 
@@ -226,8 +231,12 @@ const addIntern = () => {
             // call addTeamMember() function
             addTeamMember();
         });
-}
+};
 
+// function that creates html page
+const buildTeam = () => {
+
+}
 // call createTeam() function at start of application
 createTeam();
 
