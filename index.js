@@ -3,6 +3,8 @@ const Employee = require('./lib/Employee.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 const Manager = require('./lib/Manager.js');
+// import page template js file
+const generatePage = require('./src/page-template.js');
 // import fs and path modules
 const fs = require('fs');
 const path = require('path');
@@ -235,8 +237,9 @@ const addIntern = () => {
 
 // function that creates html page
 const buildTeam = () => {
+    fs.writeFileSync(distHTML, generatePage(teamArr), 'utf-8');
+};
 
-}
 // call createTeam() function at start of application
 createTeam();
 
