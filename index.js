@@ -237,6 +237,7 @@ const addIntern = () => {
 
 // function that creates html page
 const buildTeam = () => {
+    console.log("Generating team page...");
     fs.writeFileSync(distHTML, generatePage(teamArr), 'utf-8');
 };
 
