@@ -1,6 +1,6 @@
-// generate html page
+// function that generates html page
 const generatePage = team => {
-    // create manager card
+    // function that creates manager card
     const managerCard = manager => {
         return `
         <div class="card">
@@ -19,7 +19,7 @@ const generatePage = team => {
         `;
     };
 
-    // create engineer card
+    // function that creates engineer card
     const engineerCard = engineer => {
         return `
         <div class="card">
@@ -31,10 +31,29 @@ const generatePage = team => {
             <ul class="list-group">
                 <li class="list-group-item">ID: ${engineer.getId()}</li>
                 <li class="list-group-item">Email: <a href="mailto:${engineer.getEmail()}">${engineer.getEmail()}</a></li>
-                <li class="list-group-item">Office Number: ${engineer.getOfficeNumber()}</li>
+                <li class="list-group-item">Github: <a href="https://github.com/${engineer.getGithub()}" target="_blank">${engineer.getGithub()}</a></li>
             </ul>
         </div>
     </div>
         `;
     };
-}
+
+    // function that creates intern card
+    const internCard = intern => {
+        return `
+        <div class="card">
+        <div class="card-header">
+            <h2 class="card-title">${intern.getName()}</h2>
+            <h3 class="card-title"><i class="fas fa-user-graduate mr-2"></i>${intern.getRole()}</h3>
+        </div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">ID: ${intern.getId()}</li>
+                <li class="list-group-item">Email: <a href="mailto:${intern.getEmail()}">${intern.getEmail()}</a></li>
+                <li class="list-group-item">School: ${intern.getSchool()}</li>
+            </ul>
+        </div>
+    </div>
+        `;
+    };
+};
