@@ -239,6 +239,7 @@ const addIntern = () => {
 const buildTeam = () => {
     console.log("Generating team page...");
     fs.writeFileSync(distHTML, generatePage(teamArr), 'utf-8');
+    console.log("Page generated successfully!");
 };
 
 // call createTeam() function at start of application

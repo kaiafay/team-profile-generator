@@ -1,0 +1,12 @@
+#title {
+    background-color: rgb(136, 136, 220);
+    padding: 1rem 0;
+}
+
+.card {
+    margin: 0 .5rem;
+}
+
+.card-header {
+    background-color: lightskyblue;
+}
