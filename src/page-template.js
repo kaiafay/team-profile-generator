@@ -56,4 +56,26 @@ const generatePage = team => {
     </div>
         `;
     };
+
+    // emtpy array for employee cards
+    const html = [];
+
+    // push employee cards to html array
+    html.push(team
+        // filters through team array for manager(s)
+        .filter(employee => employee.getRole() === "Manager")
+        // calls managerCard() function on each manager
+        .map(manager => managerCard(manager)));
+    html.push(team
+        .filter(employee => employee.getRole() === "Engineer")
+        .map(engineer => engineerCard(engineer))
+        // joins all the elements in the array and returns it as a string
+        .join(""));
+    html.push(team
+        .filter(employee => employee.getRole() === "Intern")
+        .map(intern => internCard(intern))
+        .join(""));
+
+        // returns html array as a joined string
+        return html.join("");
 };
