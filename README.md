@@ -1,7 +1,7 @@
 # Team Profile Generator
 ## Description
 A Node.js application that takes user input and generates an HTML webpage for teams. <br />
-Built With: <br />
+Built With:
 * Node.js
 * Jest
 * Inquirer
@@ -22,6 +22,7 @@ To run tests, enter the command `npm run test`.
 
 ## Demo
 Link to video demonstration: [Team Profile Generator Walkthrough](https://drive.google.com/file/d/1rwax26PW6M_eHWs7PY8vENJtyYwSnjUu/view?usp=sharing)
+
 ![video of a walkthrough for the team profile generator application](images/walkthrough-teambuilder.gif)
 
 ## Mock Up 
